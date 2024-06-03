@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y direnv \
 RUN apt-get install -y curl
 RUN curl -L "${JULIA_URL}" | tar -xzf - \
   && mv julia-${JULIA_BUGFIX_VERSION} julia 
-RUN export PATH=~/julia/bin:$PATH \
-  && julia -e "using Pkg; Pkg.add(\"IJulia\")"
+# RUN export PATH=~/julia/bin:$PATH \
+#  && julia -e "using Pkg; Pkg.add(\"IJulia\")"
