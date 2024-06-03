@@ -3,7 +3,7 @@ ARG JULIA_URL="https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-1.10.
 ARG JULIA_MINOR_VERSION="1.10"
 ARG JULIA_BUGFIX_VERSION="1.10.3"
 
-RUN apt-get update && sudo apt-get install -y direnv \
+RUN apt-get update && apt-get install -y direnv \
   && direnv hook bash >> /home/gitpod/.bashrc \
   && echo "export PATH=/home/gitpod/julia/bin:$PATH" >> /home/gitpod/.bashrc
 RUN curl -L "${JULIA_URL}" | tar -xzf - \
