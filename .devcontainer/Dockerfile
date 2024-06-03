@@ -4,9 +4,9 @@ ARG JULIA_MINOR_VERSION="1.10"
 ARG JULIA_BUGFIX_VERSION="1.10.3"
 
 RUN apt-get update && apt-get install -y direnv \
-  && direnv hook bash >> /home/gitpod/.bashrc \
-  && echo "export PATH=/home/gitpod/julia/bin:$PATH" >> /home/gitpod/.bashrc
+  && direnv hook bash >> ~/.bashrc \
+  && echo "export PATH=~/julia/bin:$PATH" >> ~/.bashrc
 RUN curl -L "${JULIA_URL}" | tar -xzf - \
   && mv julia-${JULIA_BUGFIX_VERSION} julia 
-RUN export PATH=/home/gitpod/julia/bin:$PATH \
+RUN export PATH=~/julia/bin:$PATH \
   && julia -e "using Pkg; Pkg.add(\"IJulia\")"
